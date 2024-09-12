@@ -2,6 +2,18 @@
 
 
 lives = 3
+score = 25125423542542340
+name = "keyon"
+
+
+print(f"Hello {KEYON}!  You scored {10} points.\n")
+
+
+# CHARACTER REFRENCE
+# CURLY BRACES {}
+# BRACKETS []
+# ANGLE-BRACKETS <>
+# PARENRHESES ()
 
 # Allow the user to input the score.
 
