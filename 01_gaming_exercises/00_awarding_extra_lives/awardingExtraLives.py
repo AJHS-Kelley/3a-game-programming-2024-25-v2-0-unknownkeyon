@@ -6,7 +6,7 @@ score = 25125423542542340
 name = "keyon"
 
 
-print(f"Hello {KEYON}!  You scored {10} points.\n")
+print(f"Hello {name}!  You scored {score} points.\n")
 
 
 # CHARACTER REFRENCE
