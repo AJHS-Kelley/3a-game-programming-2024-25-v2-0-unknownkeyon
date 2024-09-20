@@ -39,3 +39,42 @@ while playerScore < 5 and cpuScore < 5:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# let cpu select choice at random.
+cpuChoice = random.randint(0, 2) # randomly select 0, 1, or 2.
+if cpuChoice == 0:
+    cpuChoice = "rock"\
+elif cpuChoice == 1:
+    cpuChoice = "scissors"
+elif cpuChoice == 2:
+    cpuChoice = "paper"
+else:
+    print("Unable to determine CPU choice.\nPlease restart.\n")
+    exit()
+
+
+# compare player choice to cpu choice
+if playerChoice == "rock" and cpuChoice == "paper":
+print(f"The CPU chose {cpuChoice} and you chose {playerChoice}.\n")
+print("The CPU wins a point.\n")
+cpuScore += 1
+# CPU 
