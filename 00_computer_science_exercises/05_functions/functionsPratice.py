@@ -10,3 +10,30 @@ def helloWorldMulti(): # FUNCTION SIGNATURE
 
     print("""english", "france""")
     language = input("What language do you want?\n  Please type the first letter of the language you want.\n").lower()
+
+
+
+
+
+    # allow the user to select (input) a choice for the language.
+    language = input("What language do you want")
+
+
+
+    
+    
+    
+
+    
+
+
+
+
+        print("In Somali:\n, Haye caalamkow!\n")
+    
+    # helloWorldMulti() # FUNCTION CALL
+
+    # Function to Determine Even / Odd Numbers
+    argument = random.randint(-1000, 1000)
+
+    def isEven(argument1: int) -> bool: # Requires one ARGUMENT (argument) and RETURNS a Boolean value
