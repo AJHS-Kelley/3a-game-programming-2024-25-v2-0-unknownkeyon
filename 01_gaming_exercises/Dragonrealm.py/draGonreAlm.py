@@ -6,12 +6,12 @@ import time
 
 def displayIntro():
 
-    print('You are in a land full of dragons. In front of you,')
-    print('you see two caves. In one cave, the dragon is friendly')
+    print('You are in a village full of dragons. Right Infront of you,')
+    print('you see 2 caves. In 1 cave, the dragon is friendly and wont harm you')
     print('and will share his treasure with you. The other dragon')
     print('is greedy and hungry, and will eat you on sight.')
+    print('it is your job to pick the right cave to find the treasure.')
     print()
-
 def chooseCave():
     cave = ''
     while cave != '1' and cave != '2':
@@ -20,21 +20,23 @@ def chooseCave():
     return cave
 
 def checkCave(chosenCave):
-    print('You approach the cave...')
+    print('You walk inside the cave...')
     time.sleep(2)
-    print('It is dark and spooky...')
+    print('It is very  dark and scary...')
     time.sleep(2)
-    print('A large dragon jumps out in front of you! He opens his jaws and...')
+    print('A large dragon jumps out in front of you! He opens his jaws and eats you whole')
     print()
     time.sleep(2)
 
     friendlyCave = random.randint(1, 2)
 
-    if chosenCave == str(friendlyCave):
-        print('Gives you his treasure!')
 
-    else:
-        print('Gobbles you down in one bite!')
+    if friendlyCave == 1:
+        print('Gives you his treasure!')
+    elif friendlyCave == 2:
+        print('You lost!')
+    elif friendlyCave == 3:
+        print("You got destroyed")
 
 
 
