@@ -19,66 +19,96 @@ saveData = open(logFileName, "a")
 
 saveData.write("GAME STARTED" + " " + str(datetime.datetime.now()) + "\n")         
 
+hasSword = False
+hasShield = False
+
 items = 0
+alive = True
 
 def displayIntro():
+    print('You are lost in the forest and you need somewhere to stay...')
+    time.sleep(waitTime)
+    print("There's some different camps you can try to stay at for the night...")
+    time.sleep(waitTime)
+    print("However beware, the residents might not be so welcoming...")
 
-    print('You are in a village full of dragons. Right Infront of you,')
-    time.sleep(waitTime)
-    print('you see 2 caves. In 1 cave, the dragon is friendly and wont harm you')
-    time.sleep(waitTime)
-    print('and will share his treasure with you. The other dragon')
-    time.sleep(waitTime)
-    print('is greedy and hungry, and will eat you on sight.')
-    time.sleep(waitTime)
-    print('it is your job to pick the right cave to find the treasure.')
-    time.sleep(waitTime)
-    print()
-def chooseCave():
-    cave = ''
-    while cave != '1' and cave != '2':
-        print('Which cave will you go into? (1 or 2)')
-        cave = input()
-    return cave
+def chooseCamp() -> int:
+    camp = ''
+    while camp != '1' and camp != '2':
+        print('Which camp will you go to? (1 for the Bandit Camp or 2 for the Archer Camp)')
+        camp = input()
+    print("CRASH POINT 1")
+    return camp
 
-def checkCave(chosenCave):
-    print('You walk inside the cave...')
-    time.sleep(waitTime)
-    print('It is very  dark and scary...')
-    time.sleep(waitTime)
-    print('A large dragon jumps out in front of you and starts chasing you')
-    print("You are running...")
-
-    print("would you like to pick up a banana slip?")
-    time.sleep(waitTime)
-
-    friendlyCave = random.randint(1, 2)
-
-
-    if friendlyCave == 1:
-        print('Gives you his treasure!')
-    elif friendlyCave == 2:
-        print('You lost!')
-    elif friendlyCave == 3:
-        print("You got destroyed")
-
+def campScenario(camp, hasSword, hasShield):
+    print("CRASH POINT 2")
+    if camp == '1' and hasSword:
+        print("You wander into the Bandit Camp, it doesn't look that big... there's barely any people.")
+        time.sleep(waitTime)
+        print("They don't seem to like you very much.")
+        time.sleep(waitTime)
+        print("They draw their weapons against you!")
+        time.sleep(waitTime)
+        print("You fend everybody off with your masterful sword skills, good thing you had it.")
+        time.sleep(waitTime)
+        print("The smell of the bodies is strong but you can finally get some sleep in one of the beds.")
+    elif camp == '1' and hasShield:
+        print("You wander into the Bandit Camp, it doesn't look that big... there's barely any people.")
+        time.sleep(waitTime)
+        print("They don't seem to like you very much.")
+        time.sleep(waitTime)
+        print("They draw their weapons against you!")
+        time.sleep(waitTime)
+        print("You block their strikes with your shield.")
+        time.sleep(waitTime)
+        print("One of them snuck up from behind and stabbed you!")
+        time.sleep(waitTime)
+        print("You passed out and died from bleeding out.")
+        alive = False
+        return alive
+    elif camp == '2' and hasShield:
+        print("You wander into the Archer Camp, it looks very intense.")
+        time.sleep(waitTime)
+        print("The leader of the camp greets you with a stoic look.")
+        time.sleep(waitTime)
+        print("He tells you that in order to stay at his camp, your reflexes must be tested.")
+        time.sleep(waitTime)
+        print("His archers aim their bows at you, prepare yourself.")
+        time.sleep(waitTime)
+        print("You block all the arrows with your shield with perfect movements.")
+        time.sleep(waitTime)
+        print("The leader tells you that you have earned his respect and earned a tent.")
+        time.sleep(waitTime)
+        print("Time to get some sleep.")
+    elif camp == '2' and hasSword:
+        print("You wander into the Archer Camp, it looks very intense.")
+        time.sleep(waitTime)
+        print("The leader of the camp greets you with a stoic look.")
+        time.sleep(waitTime)
+        print("He tells you that in order to stay at his camp, your reflexes must be tested.")
+        time.sleep(waitTime)
+        print("His archers aim their bows at you, prepare yourself.")
+        time.sleep(waitTime)
+        print("You manage to block two arrows with your sword before being overwhelmed with their attacks.")
+        time.sleep(waitTime)
+        print("The arrows were too much for you and your sword, you died.")
+        alive = False
+        return alive
+    print("CRASH POINT 3")
 
 
 playAgain = 'yes'
 
 while playAgain == 'yes' or playAgain == 'y':
-    waitTime = input("PLease input how many seconds you would like the text to wait. Enter 1-3.")
-    while items != 2:
-        print("Please select your weapon, 1 for Sword, 2 for Hammer")
-        weapon = input().lower
-        if weapon == 1:
-            hasSword = True
-        elif weapon == 2:
-            hasHammer = True
-        items += 1
-        
+    waitTime = int(input("Please input how many seconds you would like the text to wait. Enter 1 - 3.\n"))
     displayIntro()
-    caveNumber = chooseCave()
-    checkCave(caveNumber)
+    print("Please select your weapon, 1 for Sword, 2 for Shield")
+    weapon = input().lower
+    if weapon == '1':
+        hasSword = True
+    elif weapon == '2':
+        hasShield = True
+    campNumber = chooseCamp()
+    campScenario(campNumber, hasSword, hasShield)
     print('Do you want to play again? (yes or no)')
     playAgain = input()
