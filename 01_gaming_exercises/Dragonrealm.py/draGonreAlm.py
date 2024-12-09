@@ -1,6 +1,6 @@
 # Dragon Realm, Keyon Walker, v0.3
 # Based on https://inventwithpython.com/chapter6.html by Al Sweigart
-
+# 2024-12-09 -- Code Check, 73% 
 import random
 import time
 import datetime
